@@ -1,0 +1,1 @@
+option go_package= "path/where/we/want/to/generate/our/.pb.go;name_of_the_package"

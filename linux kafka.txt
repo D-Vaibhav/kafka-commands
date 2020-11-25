@@ -1,0 +1,59 @@
+if linux commands stop working
+---------------------------------
+$export PATH=/bin:/usr/bin
+============================================================
+
+all the commands should be given from kafka directory
+=========================================================
+
+
+flow:
+	#1. start zookeeper server
+	#2. strat kafka server
+	#3. create topic (if required)
+	#4. start console consumer
+	#5. start console producer
+
+==========================================================
+
+
+
+running zookeeper, inside the kafka folder
+---------------------------------------------------------
+$ sudo ./bin/zookeeper-server-start.sh config/zookeeper.properties
+
+
+
+running kafka, inside the kafka folder
+-------------------------------------------
+$ sudo ./bin/kafka-server-start.sh config/server.properties
+
+
+
+creating a new topic
+-------------------------------------------------------------
+$ ./bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test-edureka
+
+
+
+listing  all the topics
+-----------------------------
+$ ./bin/kafka-topics.sh --list --zookeeper localhost:2181
+
+
+=======================================================================================
+
+$ ./bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test-edureka --from-beginning
+
+
+=========================================================================================
+
+$ ./bin/kafka-console-producer.sh --broker-list localhost:9092 --topic test-edureka
+
+
+
+
+
+
+
+
